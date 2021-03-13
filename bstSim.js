@@ -190,6 +190,7 @@ function inOrder(root) {
 }
 
 //Main declarations
+let drawTime;
 function beginSimulation(nodes) {
   let elements = nodes;
   let root = null;
@@ -201,10 +202,18 @@ function beginSimulation(nodes) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   nodeList = [];
   for (let i = 0; i < elements.length; i++) {
-    setTimeout(() => {
+    drawTime = setTimeout(() => {
       root = nodeInsert(root, elements[i], ctx, i);
 
       // levelOrder(root, ctx, i);
     }, 1000 * (i + 1));
   }
+}
+
+function stopSimulation() {
+  return new Promise((resolve, reject) => {
+    while (drawTime--) clearTimeout(drawTime);
+
+    resolve(true);
+  });
 }

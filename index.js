@@ -1,9 +1,10 @@
-const btn = document.getElementById("simulate");
+const form = document.getElementById("simulationForm");
 
-btn.onclick = event => {
+form.onsubmit = async event => {
   event.preventDefault();
   let input = document.getElementById("bstValues").value;
   let values = input.split(" ");
   let nodes = values.map(value => parseInt(value));
-  beginSimulation(nodes);
+  let stop = await stopSimulation();
+  if (stop) beginSimulation(nodes);
 };
