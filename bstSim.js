@@ -191,29 +191,51 @@ function inOrder(root) {
 
 //Main declarations
 let drawTime;
-function beginSimulation(nodes) {
+let stopSim = false;
+let canvas = document.getElementById("treeCanvas");
+let ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+async function beginSimulation(nodes) {
   let elements = nodes;
   let root = null;
   let htmlElement = document.getElementById("tree");
-  let canvas = document.getElementById("treeCanvas");
-  let ctx = canvas.getContext("2d");
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   nodeList = [];
-  for (let i = 0; i < elements.length; i++) {
-    drawTime = setTimeout(() => {
-      root = nodeInsert(root, elements[i], ctx, i);
+  stopSim = false;
+  // for (let i = 0; i < elements.length; i++) {
+  //   drawTime = setTimeout(() => {
+  //     root = nodeInsert(root, elements[i], ctx, i);
 
-      // levelOrder(root, ctx, i);
-    }, 1000 * (i + 1));
+  //     // levelOrder(root, ctx, i);
+  //   }, 1000 * (i + 1));
+  // }
+  for (let i = 0; i < elements.length; i++) {
+    console.log(stopSim);
+    if (stopSim) break;
+    let beginInsertion = await new Promise((resolve, reject) => {
+      console.log("In promise" + i);
+      drawTime = setTimeout(() => {
+        root = nodeInsert(root, elements[i], ctx, i);
+        resolve(true);
+      }, 1000);
+    });
   }
 }
 
 function stopSimulation() {
   return new Promise((resolve, reject) => {
-    while (drawTime--) clearTimeout(drawTime);
-
-    resolve(true);
+    nodeList = [];
+    stopSim = true;
+    while (drawTime--) {
+      console.log(drawTime);
+      clearTimeout(drawTime);
+    }
+    setTimeout(() => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      console.log("In timeout");
+      resolve(true);
+    }, 1000);
   });
 }
