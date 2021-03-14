@@ -204,18 +204,11 @@ async function beginSimulation(nodes) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   nodeList = [];
   stopSim = false;
-  // for (let i = 0; i < elements.length; i++) {
-  //   drawTime = setTimeout(() => {
-  //     root = nodeInsert(root, elements[i], ctx, i);
 
-  //     // levelOrder(root, ctx, i);
-  //   }, 1000 * (i + 1));
-  // }
   for (let i = 0; i < elements.length; i++) {
     console.log(stopSim);
     if (stopSim) break;
     let beginInsertion = await new Promise((resolve, reject) => {
-      console.log("In promise" + i);
       drawTime = setTimeout(() => {
         root = nodeInsert(root, elements[i], ctx, i);
         resolve(true);
@@ -229,12 +222,10 @@ function stopSimulation() {
     nodeList = [];
     stopSim = true;
     while (drawTime--) {
-      console.log(drawTime);
       clearTimeout(drawTime);
     }
     setTimeout(() => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      console.log("In timeout");
       resolve(true);
     }, 1000);
   });

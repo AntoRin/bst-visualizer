@@ -7,14 +7,13 @@ form.onsubmit = async event => {
   let input = document.getElementById("bstValues").value;
   let values = input.split(" ");
   let nodes = values.map(value => parseInt(value));
-
-  // if (stop) beginSimulation(nodes);
   start.disabled = true;
   beginSimulation(nodes);
+  stop.disabled = false;
 };
 
-stop.onclick = async event => {
+stop.onclick = async () => {
   let stop = await stopSimulation();
   start.disabled = false;
-  console.log(stop);
+  stop.disabled = true;
 };
