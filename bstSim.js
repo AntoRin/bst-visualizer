@@ -206,7 +206,6 @@ async function beginSimulation(nodes) {
   stopSim = false;
 
   for (let i = 0; i < elements.length; i++) {
-    console.log(stopSim);
     if (stopSim) break;
     let beginInsertion = await new Promise((resolve, reject) => {
       drawTime = setTimeout(() => {
@@ -224,7 +223,6 @@ function stopSimulation() {
     stopSim = true;
     if (!drawTime || drawTime < 0) return reject("No simulation in process");
     while (drawTime--) {
-      console.log(drawTime);
       clearTimeout(drawTime);
     }
     setTimeout(() => {

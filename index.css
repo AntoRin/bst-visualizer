@@ -27,10 +27,18 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+#simulationForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 #bstValues {
-  font-size: 1rem;
+  font-size: 1.2rem;
   width: 300px;
 }
 
@@ -40,7 +48,7 @@ header {
   background: blue;
   color: white;
   border-radius: 5px;
-  margin: 0px 10px;
+  margin: 5px 10px;
   outline: none;
   border: none;
   width: 90px;
@@ -53,7 +61,7 @@ header {
   background: crimson;
   color: white;
   border-radius: 5px;
-  margin: 0px 10px;
+  margin: 5px 10px;
   outline: none;
   border: none;
   width: 90px;

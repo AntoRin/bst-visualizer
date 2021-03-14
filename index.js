@@ -19,9 +19,6 @@ stop.onclick = async () => {
   try {
     await stopSimulation();
     endSimulation();
-    // start.style.background = "blue";
-    // start.disabled = false;
-    // stop.disabled = true;
   } catch (error) {
     console.log(error);
   }
