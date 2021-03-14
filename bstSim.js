@@ -221,7 +221,7 @@ function stopSimulation() {
   return new Promise((resolve, reject) => {
     nodeList = [];
     stopSim = true;
-    if (!drawTime || drawTime < 0) return reject("No simulation in process");
+    if (!drawTime || drawTime < 0) return reject("No simulation in progress");
     while (drawTime--) {
       clearTimeout(drawTime);
     }
