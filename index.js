@@ -1,6 +1,7 @@
 const form = document.getElementById("simulationForm");
 const start = document.getElementById("simulate");
 const stop = document.getElementById("stop");
+const transition = document.querySelector(".transition");
 
 form.onsubmit = async event => {
   event.preventDefault();
@@ -8,12 +9,27 @@ form.onsubmit = async event => {
   let values = input.split(" ");
   let nodes = values.map(value => parseInt(value));
   start.disabled = true;
-  beginSimulation(nodes);
+  start.style.background = "darkgray";
   stop.disabled = false;
+  beginSimulation(nodes);
 };
 
 stop.onclick = async () => {
-  let stop = await stopSimulation();
-  start.disabled = false;
-  stop.disabled = true;
+  transition.style.display = "block";
+  try {
+    await stopSimulation();
+    endSimulation();
+    // start.style.background = "blue";
+    // start.disabled = false;
+    // stop.disabled = true;
+  } catch (error) {
+    console.log(error);
+  }
+  transition.style.display = "none";
 };
+
+function endSimulation() {
+  start.disabled = false;
+  start.style.background = "blue";
+  stop.disabled = true;
+}

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 html {
   margin: 0;
   padding: 0;
@@ -10,4 +12,61 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.user-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bstValues {
+  font-size: 1rem;
+  width: 300px;
+}
+
+#simulate {
+  padding: 5px 7px;
+  font-size: 1rem;
+  background: blue;
+  color: white;
+  border-radius: 5px;
+  margin: 0px 10px;
+  outline: none;
+  border: none;
+  width: 90px;
+  cursor: pointer;
+}
+
+#stop {
+  padding: 5px 7px;
+  font-size: 1rem;
+  background: crimson;
+  color: white;
+  border-radius: 5px;
+  margin: 0px 10px;
+  outline: none;
+  border: none;
+  width: 90px;
+  cursor: pointer;
+}
+
+.transition {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(240, 240, 240, 0.7);
+  display: none;
+  z-index: 99;
 }

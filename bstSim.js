@@ -214,6 +214,7 @@ async function beginSimulation(nodes) {
         resolve(true);
       }, 1000);
     });
+    i === elements.length - 1 && endSimulation();
   }
 }
 
@@ -221,12 +222,14 @@ function stopSimulation() {
   return new Promise((resolve, reject) => {
     nodeList = [];
     stopSim = true;
+    if (!drawTime || drawTime < 0) return reject("No simulation in process");
     while (drawTime--) {
+      console.log(drawTime);
       clearTimeout(drawTime);
     }
     setTimeout(() => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      resolve(true);
+      resolve();
     }, 1000);
   });
 }
