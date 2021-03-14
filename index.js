@@ -30,3 +30,16 @@ function endSimulation() {
   start.style.background = "blue";
   stop.disabled = true;
 }
+
+//Help Modal
+const helpIcon = document.getElementById("helpIcon");
+const modal = document.querySelector(".help-modal");
+const closeIcon = document.getElementById("modalClose");
+
+helpIcon.onclick = () => {
+  modal.style.display = "block";
+};
+
+closeIcon.onclick = () => {
+  modal.style.display = "none";
+};

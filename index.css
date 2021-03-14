@@ -79,3 +79,43 @@ header {
   display: none;
   z-index: 99;
 }
+
+#helpIcon {
+  position: fixed;
+  right: 5px;
+  bottom: 5%;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.help-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.726);
+  z-index: 100;
+  display: none;
+}
+
+#modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(36, 35, 35);
+  color: white;
+  padding: 20px;
+  font-size: 1.3rem;
+}
+
+#modalClose {
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  color: white;
+  font-size: 1.5rem;
+  z-index: 100;
+  cursor: pointer;
+}
