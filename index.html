@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AVL Tree Visualizer</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="index.css" />
-  </head>
-  <body>
-    <header>
-      <h1>BST Visualizer</h1>
-    </header>
-    <div class="user-input">
-      <form id="simulationForm">
-        <input
-          autocomplete="off"
-          autofocus="on"
-          type="text"
-          id="bstValues"
-          required
-          pattern="[0-9 ]+"
-          placeholder="Numbers separated by space"
-          title="Numbers separated by space"
-        />
-        <button id="simulate" type="submit">Simulate</button>
-      </form>
-      <button id="stop">Stop</button>
-    </div>
-    <canvas id="treeCanvas"></canvas>
-    <div class="transition"></div>
-    <div class="help-modal">
-      <div id="modal">
-        To visualize how the insertion happens in a Binary Search Tree, type in
-        numbers separated by a single space and click on
-        <i>simulate</i>.
-        <br />
-        <br />
-        <i
-          >Note: The Binary Search Tree is a hierarchical data structure wherein
-          each node stores a value that is greater than all values in nodes to
-          its left, and smaller than all values in nodes to its right.</i
-        >
-        <div id="modalClose"><i class="fas fa-times"></i></div>
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>AVL Tree Visualizer</title>
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+         crossorigin="anonymous"
+      />
+      <link rel="stylesheet" href="index.css" />
+   </head>
+   <body>
+      <header>
+         <h1>BST Visualizer</h1>
+      </header>
+      <div class="user-input">
+         <form id="simulationForm">
+            <input
+               autocomplete="off"
+               autofocus="on"
+               type="text"
+               id="bstValues"
+               required
+               pattern="[0-9 ]+"
+               placeholder="Numbers separated by space"
+               title="Whole, positive numbers separated by a single space"
+            />
+            <button id="simulate" type="submit">Simulate</button>
+         </form>
+         <button id="stop">Stop</button>
       </div>
-    </div>
-    <i id="helpIcon" class="far fa-question-circle"></i>
+      <canvas id="treeCanvas"></canvas>
+      <div class="transition"></div>
+      <div class="help-modal">
+         <div id="modal">
+            To visualize how the insertion happens in a Binary Search Tree, type
+            in numbers separated by a single space and click on
+            <i>simulate</i>.
+            <br />
+            <br />
+            <i
+               >Note: The Binary Search Tree is a hierarchical data structure
+               wherein each node stores a value that is greater than all values
+               in nodes to its left, and smaller than all values in nodes to its
+               right.</i
+            >
+            <div id="modalClose"><i class="fas fa-times"></i></div>
+         </div>
+      </div>
+      <i id="helpIcon" class="far fa-question-circle"></i>
 
-    <script src="bstSim.js"></script>
-    <script src="index.js"></script>
-  </body>
+      <script src="bstSim.js"></script>
+      <script src="index.js"></script>
+   </body>
 </html>
